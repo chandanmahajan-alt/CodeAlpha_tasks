@@ -1,0 +1,139 @@
+# Matrix Operations (CodeAlpha_Matrix)
+
+A simple C program that performs basic matrix operations: addition, multiplication, and transpose. The program is interactive and uses fixed maximum matrix dimensions (10x10).
+
+## Features
+- Matrix addition (two matrices of same dimensions)
+- Matrix multiplication
+- Matrix transpose
+- Interactive CLI prompts for dimensions and elements
+- Input validation for maximum matrix size
+
+## Files
+- `CodeAlpha_Matrix.c` — main program implementing the matrix operations
+
+## Requirements
+- A C compiler (e.g., `gcc`)
+- POSIX-compatible environment (Linux, macOS, WSL on Windows, etc.)
+
+## Build
+
+Compile the program with gcc:
+
+```bash
+gcc CodeAlpha_Matrix.c -o matrix_ops
+```
+
+## Run
+
+Start the program:
+
+```bash
+./matrix_ops
+```
+
+The program shows a menu:
+1. Matrix Addition
+2. Matrix Multiplication
+3. Matrix Transpose
+4. Exit
+
+Follow the prompts to enter matrix dimensions and elements.
+
+## Usage examples
+
+Example — Matrix Addition (2x3 matrices):
+```
+Select Operation:
+1. Matrix Addition
+...
+Enter rows: 2
+Enter columns: 3
+
+Enter Matrix 1:
+Element [0][0]: 1
+Element [0][1]: 2
+Element [0][2]: 3
+Element [1][0]: 4
+Element [1][1]: 5
+Element [1][2]: 6
+
+Enter Matrix 2:
+Element [0][0]: 6
+Element [0][1]: 5
+Element [0][2]: 4
+Element [1][0]: 3
+Element [1][1]: 2
+Element [1][2]: 1
+```
+
+Output:
+```
+Matrix 1 (2x3):
+     1      2      3
+     4      5      6
+
+Matrix 2 (2x3):
+     6      5      4
+     3      2      1
+
+Sum (Matrix 1 + Matrix 2) (2x3):
+     7      7      7
+     7      7      7
+```
+
+Example — Matrix Transpose:
+```
+Select Operation: 3
+Enter rows: 2
+Enter columns: 3
+Enter Matrix:
+Element [0][0]: 1
+Element [0][1]: 2
+Element [0][2]: 3
+Element [1][0]: 4
+Element [1][1]: 5
+Element [1][2]: 6
+```
+
+Output:
+```
+Original Matrix (2x3):
+     1      2      3
+     4      5      6
+
+Transpose (3x2):
+     1      4
+     2      5
+     3      6
+```
+
+Important note about Matrix Multiplication
+- Mathematically, to multiply A (dimensions rows1 x cols1) by B (rows2 x cols2), you must have cols1 == rows2 and the product has dimensions rows1 x cols2.
+- The included program prompts for Matrix 2 rows and forces cols2 = cols1 in code; it does not validate that rows2 == cols1. This prompt text in the program ("For Matrix 2, columns must equal Matrix 1's columns.") is misleading.
+- Practical rule for users of this program: when performing multiplication, enter the number of rows of Matrix 2 equal to the number of columns of Matrix 1 (rows2 == cols1). Example: To multiply a 2x3 matrix by a 3x4 matrix:
+  - Matrix 1: rows1 = 2, cols1 = 3
+  - Matrix 2: rows2 = 3, cols2 = 3 (the program sets cols2 = cols1; but the result will be rows1 x cols2)
+- Suggested fix for correctness (simple code hint):
+  - Prompt for Matrix 2 rows and columns separately, and enforce rows2 == cols1, using the user-supplied cols2 for the output width.
+
+## Constraints
+- Maximum matrix size is 10 x 10 (constants MAX_ROW and MAX_COL).
+- The program reads integer elements only.
+- Basic input validation exists for matrix dimensions but be careful to enter valid numeric values when prompted.
+
+## Suggested improvements
+- Fix the matrix multiplication prompts/validation so columns/rows constraints are correctly enforced and both rows2 and cols2 are prompted separately.
+- Add safer input parsing to handle non-numeric or out-of-range element values.
+- Support dynamic sizing beyond fixed MAX_ROW / MAX_COL using dynamic memory.
+- Provide automated tests / example input files for reproducible runs.
+
+## License
+You can add a license of your choice (e.g., MIT). For example:
+
+```
+MIT License
+```
+
+## Contribution
+Feel free to open issues or submit pull requests to improve functionality, fix the multiplication prompt/validation, or add tests and documentation.
