@@ -24,8 +24,8 @@ Make sure you have a C compiler installed (such as `gcc`). Open your terminal in
 gcc filename.c -o output
 
 # 2. Run
-./output
-
+./output 
+'''
 ---
 
 ## 👤 Author
