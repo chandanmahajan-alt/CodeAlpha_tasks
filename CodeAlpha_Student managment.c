@@ -212,7 +212,7 @@ void updateStudent(void) {
 
     for (int i = 0; i < count; i++) {
         fwrite(&students[i], sizeof(Student), 1, file);
-    }
+    } 
     fclose(file);
 }
 
