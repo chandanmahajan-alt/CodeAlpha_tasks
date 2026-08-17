@@ -27,7 +27,7 @@ int main() {
     int choice;
 
     printf("\n========================================\n");
-    printf("  STUDENT MANAGEMENT SYSTEM\n");
+    printf("  STUDENT MANAGMENT SYSTEM\n");
     printf("========================================\n\n");
 
     while (1) {
@@ -64,7 +64,7 @@ int main() {
                 displayAllStudents();
                 break;
             case 6:
-                printf("\nThank you for using Student Management System. Goodbye!\n");
+                printf("\nThank you for using Student Managment System. Goodbye!\n");
                 printf("========================================\n");
                 exit(0);
             default:
